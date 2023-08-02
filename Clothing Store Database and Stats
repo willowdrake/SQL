@@ -1,0 +1,28 @@
+--Create a clothing store database
+
+CREATE TABLE store (id INTEGER PRIMARY KEY, item TEXT, section TEXT, price INTEGER, popularity INTEGER);
+
+INSERT INTO store VALUES (1, "shirts", "mens", 19.99, 75);
+INSERT INTO store VALUES (2, "pants", "mens", 19.99, 80);
+INSERT INTO store VALUES (3, "shorts", "womens", 12.99, 60);
+INSERT INTO store VALUES (4, "tanks", "childrens", 12.99, 25);
+INSERT INTO store VALUES (5, "sneakers", "mens", 24.99, 55);
+INSERT INTO store VALUES (6, "socks", "childrens", 5.99, 85);
+INSERT INTO store VALUES (7, "sweaters", "womens", 17.99, 45);
+INSERT INTO store VALUES (8, "sweatpants", "childrens", 14.99, 90); 
+INSERT INTO store VALUES (9, "dresses", "womens", 15.99, 65);
+
+--Display store database ordered by price.
+SELECT * FROM store_items
+ORDER BY price desc;
+
+--What is the average price of the items in the mens section?
+SELECT AVG (price) "avg mens item price"
+FROM store
+WHERE section='mens';
+
+--What are the most popular 5 items?
+SELECT item, price, popularity
+FROM store
+order by popularity desc
+limit 5;
